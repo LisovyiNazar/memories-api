@@ -12,6 +12,9 @@ export const getPosts = async (req, res) => {
         const posts = await PostMessage.find()
             .limit(POST_PER_PAGE)
             .skip(POST_PER_PAGE * page - POST_PER_PAGE)
+            .populate({
+                options: { sort: { 'date': -1 }}
+            })
 
         res.status(200).json({
             items: posts,
