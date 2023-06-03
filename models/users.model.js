@@ -6,6 +6,10 @@ const userShema = mongoose.Schema({
     nickName: String,
     email: String,
     password: String,
+    type: {
+        type: String,
+        default: 'user',
+    },
     likedPosts: {
         type: Array,
         default: [],
