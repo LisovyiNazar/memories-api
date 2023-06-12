@@ -10,6 +10,7 @@ export const getPosts = async (req, res) => {
         const allPosts = await PostMessage.find()
 
         const posts = await PostMessage.find()
+            .sort({ _id: -1 })
             .limit(POST_PER_PAGE)
             .skip(POST_PER_PAGE * page - POST_PER_PAGE)
 
